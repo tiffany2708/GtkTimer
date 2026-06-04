@@ -39,7 +39,7 @@ class VisualTimer(Gtk.Application):
     def do_activate(self):
         win = Gtk.ApplicationWindow(application=self, title="Visual Timer")
         win.set_default_size(SIZE_PX, SIZE_PX)
-        win.set_decorated(False)
+        win.set_decorated(True)
         win.set_resizable(False)
         win.set_overflow(Gtk.Overflow.HIDDEN)
 
@@ -59,11 +59,6 @@ class VisualTimer(Gtk.Application):
         self.drawing_area.add_controller(drag)
 
         win.present()
-        # Позиционируем окно в правом верхнем углу
-        display = Gdk.Display.get_default()
-        monitor = display.get_primary_monitor()
-        geometry = monitor.get_geometry()
-        win.move(geometry.width - SIZE_PX - 20, 40)
 
     def on_click(self, gesture, n_press, x, y):
         if self.active:

@@ -79,7 +79,8 @@ class VisualTimer(Gtk.Application):
         progress = max(0, 1.0 - elapsed / DURATION_SEC)
         self.drawing_area.queue_draw()
         if progress <= 0:
-            self.stop()
+            self.active = False
+            self.timeout_id = None
             return False
         return True
 

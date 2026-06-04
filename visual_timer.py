@@ -40,7 +40,6 @@ class VisualTimer(Gtk.Application):
         win.set_default_size(SIZE_PX, SIZE_PX)
         win.set_decorated(False)
         win.set_resizable(False)
-        win.set_keep_above(True)
         win.set_overflow(Gtk.Overflow.HIDDEN)
 
 

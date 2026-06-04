@@ -43,10 +43,6 @@ class VisualTimer(Gtk.Application):
         win.set_keep_above(True)
         win.set_overflow(Gtk.Overflow.HIDDEN)
 
-        display = Gdk.Display.get_default()
-        monitor = display.get_monitors().get_item(0)
-        geometry = monitor.get_geometry()
-        win.move(geometry.width - SIZE_PX - 20, 40)
 
         self.drawing_area = Gtk.DrawingArea()
         self.drawing_area.set_content_width(SIZE_PX)

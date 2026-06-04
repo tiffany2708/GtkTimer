@@ -2,9 +2,7 @@
 import sys
 import gi
 gi.require_version('Gtk', '4.0')
-gi.require_version('GtkLayerShell', '0.1')
 from gi.repository import Gtk, GLib, Gdk
-from gi.repository import GtkLayerShell
 import math
 import time
 
@@ -55,6 +53,10 @@ class VisualTimer(Gtk.Application):
         click = Gtk.GestureClick.new()
         click.connect("pressed", self.on_click)
         self.drawing_area.add_controller(click)
+        # ↓ добавить сюда drag контроллер
+        drag = Gtk.GestureDrag.new()
+        drag.connect("drag-begin", self.on_drag_begin)
+        self.drawing_area.add_controller(drag)
 
         win.present()
 
@@ -64,6 +66,11 @@ class VisualTimer(Gtk.Application):
         else:
             self.start()
 
+    #Добавляем возможность переноса по экрану
+    def on_drag_begin(self, gesture, start_x, start_y):
+        win = self.drawing_area.get_root()
+        surface = win.get_surface()
+        surface.begin_move_drag(1, int(start_x), int(start_y), 0)
     def start(self):
         self.active = True
         self.start_time = time.time()

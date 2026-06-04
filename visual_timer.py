@@ -2,7 +2,9 @@
 import sys
 import gi
 gi.require_version('Gtk', '4.0')
+gi.require_version('GtkLayerShell', '0.1')
 from gi.repository import Gtk, GLib, Gdk
+from gi.repository import GtkLayerShell
 import math
 import time
 

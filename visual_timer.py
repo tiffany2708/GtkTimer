@@ -7,8 +7,8 @@ import math
 import time
 
 # --- Настройки внешнего вида ---
-SIZE_PX = 75            # ~2 см диаметр
-LINE_WIDTH = 6
+SIZE_PX = 120            # ~2 см диаметр
+LINE_WIDTH = 20
 COLOR_BG = (0.3, 0.3, 0.3, 0.4)   # Серый фон круга
 COLOR_FG = (0.2, 0.8, 0.4, 1.0)   # Зеленый прогресс
 
@@ -37,7 +37,7 @@ class VisualTimer(Gtk.Application):
         self.timeout_id = None
 
     def do_activate(self):
-        win = Gtk.ApplicationWindow(application=self, title="Visual Timer")
+        win = Gtk.ApplicationWindow(application=self, title=" ")
         win.set_default_size(SIZE_PX, SIZE_PX)
         win.set_decorated(True)
         win.set_resizable(False)

@@ -1,0 +1,10 @@
+#!/bin/bash
+pkill -f visual_timer.py
+# Останавливаем старую версию процесса, если она существует
+PID=$(pgrep -f "visual_timer.py")
+if [ -n "$PID" ]; then
+    kill "$PID"
+fi
+
+# Запускаем новую версию
+nohup python3 "$(dirname "$0")/visual_timer.py" "$1" >/dev/null 2>&1 &
